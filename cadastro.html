@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Empréstimo</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+    <div class="cabecalho">
+        <div class="referencias">
+            <nav>
+                <div class="inic-nav">
+                <a href="index.php">Emprestimos</a>
+            </div>
+                <!-- <a href="eu.html">Quem Sou Eu</a> -->
+                <div class="projet-nav">
+                <a href="cadastro.html"  class="pagina-atual">Cadastro</a>
+            </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="bloco">
+        <div class="container">
+            <h1>Adicionar Novo Empréstimo</h1>
+            <form action="emprestimo.php" method="post">
+                <label for="nome_aluno">Nome do Aluno:</label>
+                <input type="text" id="nome_aluno" name="nome_aluno" required>
+    
+                <label for="id_aluno">ID do Aluno:</label>
+                <input type="number" id="id_aluno" name="id_aluno" required>
+    
+                <label for="nome_livro">Nome do Livro:</label>
+                <input type="text" id="nome_livro" name="nome_livro" required>
+    
+                <label for="id_livro">ID do Livro:</label>
+                <input type="number" id="id_livro" name="id_livro" required>
+    
+                <label for="data_inicio">Data de Início:</label>
+                <input type="date" id="data_inicio" name="data_inicio" readonly required>
+    
+                <input type="submit" value="Adicionar Empréstimo">
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const dataInicio = document.getElementById('data_inicio');
+            
+            // Definindo a data atual como valor do campo data_inicio
+            const today = new Date().toISOString().split('T')[0];
+            dataInicio.value = today;
+    
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    // Aqui você pode adicionar validações de formulário ou outros scripts necessários
+                    alert('Formulário enviado!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
