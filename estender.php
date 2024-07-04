@@ -29,13 +29,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Atualizar o registro no banco de dados
         $sql = "UPDATE emprestimos SET data_fim='$nova_data_fim' WHERE id=$id";
         if ($conn->query($sql) === TRUE) {
-            echo "Empréstimo estendido com sucesso. <a href='index.php'>Voltar à lista de empréstimos</a>";
+            $response = [
+                'status' => 'success',
+                'message' => "Empréstimo $id estendido com sucesso",
+                'nova_data_fim' => $nova_data_fim
+            ];
         } else {
-            echo "Erro ao estender empréstimo: " . $conn->error;
+            $response = [
+                'status' => 'error',
+                'message' => "Erro ao estender empréstimo: " . $conn->error
+            ];
         }
     } else {
-        echo "Empréstimo não encontrado. <a href='index.php'>Voltar à lista de empréstimos</a>";
+        $response = [
+            'status' => 'error',
+            'message' => "Empréstimo não encontrado"
+        ];
     }
+
+    echo json_encode($response);
 }
 
 $conn->close();

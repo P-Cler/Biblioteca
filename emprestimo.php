@@ -10,7 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Verificar conexão
 if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
+    die(json_encode(array("status" => "error", "message" => "Conexão falhou: " . $conn->connect_error)));
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,12 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ativo = TRUE;
 
     $sql = "INSERT INTO emprestimos (nome_aluno, id_aluno, nome_livro, id_livro, data_inicio, data_fim, ativo)
-            VALUES ('$nome_aluno', $id_aluno, '$nome_livro', '$id_livro', '$data_inicio', '$data_fim', $ativo)";
+            VALUES ('$nome_aluno', '$id_aluno', '$nome_livro', '$id_livro', '$data_inicio', '$data_fim', $ativo)";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Novo empréstimo adicionado com sucesso";
+        echo json_encode(array("status" => "success", "message" => "Novo empréstimo adicionado com sucesso"));
     } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
+        echo json_encode(array("status" => "error", "message" => "Erro: " . $sql . "<br>" . $conn->error));
     }
 
     $conn->close();

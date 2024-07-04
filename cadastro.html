@@ -26,12 +26,12 @@
     <div class="bloco">
         <div class="container">
             <h1>Adicionar Novo Empréstimo</h1>
-            <form action="emprestimo.php" method="post">
+            <form id="emprestimoForm">
                 <label for="nome_aluno">Nome do Aluno:</label>
                 <input type="text" id="nome_aluno" name="nome_aluno" required>
     
                 <label for="id_aluno">ID do Aluno:</label>
-                <input type="number" id="id_aluno" name="id_aluno" required>
+                <input type="text" id="id_aluno" name="id_aluno" required>
     
                 <label for="nome_livro">Nome do Livro:</label>
                 <input type="text" id="nome_livro" name="nome_livro" required>
@@ -40,29 +40,55 @@
                 <input type="number" id="id_livro" name="id_livro" required>
     
                 <label for="data_inicio">Data de Início:</label>
-                <input type="date" id="data_inicio" name="data_inicio" readonly required>
+                <input type="date" id="data_inicio" name="data_inicio" required>
     
                 <input type="submit" value="Adicionar Empréstimo">
             </form>
+            <div id="mensagem"></div> <!-- Div para exibir mensagens -->
         </div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
+            const form = document.getElementById('emprestimoForm');
             const dataInicio = document.getElementById('data_inicio');
+            const mensagemDiv = document.getElementById('mensagem');
             
             // Definindo a data atual como valor do campo data_inicio
             const today = new Date().toISOString().split('T')[0];
             dataInicio.value = today;
+            dataInicio.max = today; // Definindo a data máxima permitida
     
-            if (form) {
-                form.addEventListener('submit', function(event) {
-                    // Aqui você pode adicionar validações de formulário ou outros scripts necessários
-                    alert('Formulário enviado!');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o envio do formulário padrão
+    
+                // Verificando se a data de início é no futuro
+                if (new Date(dataInicio.value) > new Date(today)) {
+                    mensagemDiv.innerHTML = '<p style="color:red;">A data de início não pode ser no futuro.</p>';
+                    return;
+                }
+    
+                // Enviar formulário via AJAX
+                const formData = new FormData(form);
+                fetch('emprestimo.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        mensagemDiv.innerHTML = '<p style="color:green;">' + data.message + '</p>';
+                    } else {
+                        mensagemDiv.innerHTML = '<p style="color:red;">' + data.message + '</p>';
+                    }
+                })
+                .catch(error => {
+                    mensagemDiv.innerHTML = '<p style="color:red;">Erro ao enviar formulário: ' + error.message + '</p>';
                 });
-            }
+            });
         });
     </script>
+    
+    
 </body>
 </html>
