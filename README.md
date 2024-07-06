@@ -103,4 +103,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e enviar 
 
 ## Contato
 
-Para dúvidas ou sugestões, entre em contato através de [pedro.clerl@estudante.firjan.senai.br].
+Para dúvidas ou sugestões, entre em contato através de [pedro.cler@estudante.firjan.senai.br].
