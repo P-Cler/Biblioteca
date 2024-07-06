@@ -5,10 +5,10 @@ $password = "root";
 $dbname = "biblioteca";
 $port = "3346";
 
-// Conectar ao banco de dados
+
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
-// Verificar conexão
+
 if ($conn->connect_error) {
     die(json_encode(array("status" => "error", "message" => "Conexão falhou: " . $conn->connect_error)));
 }

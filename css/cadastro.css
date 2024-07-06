@@ -1,53 +1,10 @@
-.bloco {
+body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow: hidden;
 }
-
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="date"],
-input[type="submit"] {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-input[type="submit"] {
-    background-color: #5cb85c;
-    color: #fff;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #4cae4c;
-}
-
 
 .cabecalho {
     display: flex;
@@ -55,28 +12,28 @@ input[type="submit"]:hover {
     align-items: center;
     margin: 0;
     padding: 15px 10px;
-    position: fixed;
     width: 100%;
-    background-color: #ffffff;
+    height: 50px;
+    background-color: #f4f4f4;
     z-index: 999;
     white-space: nowrap;
     transition: transform 0.5s ease;
-  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .cabecalho::after{
-    background-color: #f7f2f2;
+.cabecalho::after {
+    background-color: #f4f4f4;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
 
-
 .referencias {
     display: flex;
-      justify-content: flex-end; 
-      align-items: center;
-      margin-right: 17px;
+    justify-content: flex-end; 
+    align-items: center;
+    margin-right: 17px;
     width: auto;
     height: auto;
     margin-left: 20px;
@@ -112,6 +69,7 @@ input[type="submit"]:hover {
     background-color: rgb(0, 119, 255);
     transition: width 0.3s ease, left 0.2s ease;
 }
+
 .referencias nav a.pagina-atual::after,
 .referencias nav a:hover::after {
     width: 100%;
@@ -120,16 +78,64 @@ input[type="submit"]:hover {
 
 .referencias nav a:hover {
     pointer-events: auto;
+    color: rgb(0, 119, 255);
 }
 
 .referencias nav a.pagina-atual:hover {
     pointer-events: none;
 }
 
-.referencias nav a:hover {
-    color: rgb(0, 119, 255);
-}
-
 nav .pagina-atual {
     color: rgb(0, 119, 255) !important;
+}
+
+.bloco {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.newCad {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: -100px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="submit"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #5cb85c;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #4cae4c;
 }

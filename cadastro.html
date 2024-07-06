@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Empréstimo</title>
-    <link rel="stylesheet" href="cadastro.css">
-    <link rel="icon" href="images.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="icon" href="./favicon/images.jpeg" type="image/x-icon">
 </head>
 <body>
-
     <div class="cabecalho">
         <div class="referencias">
             <nav>
                 <div class="inic-nav">
                 <a href="index.php">Emprestimos</a>
             </div>
-                <!-- <a href="eu.html">Quem Sou Eu</a> -->
                 <div class="projet-nav">
                 <a href="cadastro.html"  class="pagina-atual">Cadastro</a>
             </div>
             </nav>
         </div>
     </div>
-
     <div class="bloco">
-        <div class="container">
+        <div class="newCad">
             <h1>Adicionar Novo Empréstimo</h1>
             <form id="emprestimoForm">
                 <label for="nome_aluno">Nome do Aluno:</label>
@@ -44,7 +41,7 @@
     
                 <input type="submit" value="Adicionar Empréstimo">
             </form>
-            <div id="mensagem"></div> <!-- Div para exibir mensagens -->
+            <div id="mensagem"></div> 
         </div>
     </div>
     
@@ -54,23 +51,23 @@
             const dataInicio = document.getElementById('data_inicio');
             const mensagemDiv = document.getElementById('mensagem');
             
-            // Definindo a data atual como valor do campo data_inicio
-            const today = new Date().toISOString().split('T')[0];
-            dataInicio.value = today;
-            dataInicio.max = today; // Definindo a data máxima permitida
-    
+            const today = new Date();
+            const todayFormatted = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+            
+            dataInicio.value = todayFormatted;
+            dataInicio.max = todayFormatted;
+            
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Impede o envio do formulário padrão
-    
-                // Verificando se a data de início é no futuro
-                if (new Date(dataInicio.value) > new Date(today)) {
+                event.preventDefault();
+                
+                const selectedDate = new Date(dataInicio.value);
+                if (selectedDate > today) {
                     mensagemDiv.innerHTML = '<p style="color:red;">A data de início não pode ser no futuro.</p>';
                     return;
                 }
-    
-                // Enviar formulário via AJAX
+                
                 const formData = new FormData(form);
-                fetch('emprestimo.php', {
+                fetch('./php/emprestimo.php', {
                     method: 'POST',
                     body: formData
                 })
@@ -88,7 +85,5 @@
             });
         });
     </script>
-    
-    
 </body>
 </html>

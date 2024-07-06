@@ -3,27 +3,24 @@ $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "biblioteca";
-$port = 3346;  // Porta do MySQL
+$port = 3346;
 
-// Conectar ao banco de dados
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
-// Verificar conexão
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["id"];
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-    // Atualizar o registro no banco de dados para definir o empréstimo como inativo
     $sql = "UPDATE emprestimos SET ativo=FALSE WHERE id=$id";
     if ($conn->query($sql) === TRUE) {
-        // Redirecionar para a página principal após finalizar o empréstimo
-        header('Location: index.php');
+        header('Location: ../index.php?page=' . $page);
         exit;
     } else {
-        echo "Erro ao finalizar empréstimo: " . $conn->error . ". <a href='index.php'>Voltar à lista de empréstimos</a>";
+        echo "Erro ao finalizar empréstimo: " . $conn->error . ". <a href='../index.php?page=" . $page . "'>Voltar à lista de empréstimos</a>";
     }
 }
 
