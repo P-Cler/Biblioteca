@@ -1,13 +1,12 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "biblioteca";
-$port = 3346;  
+$port = 3306;  
 
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
-
 
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);

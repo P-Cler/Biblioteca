@@ -15,7 +15,7 @@
                 <a href="index.php">Emprestimos</a>
             </div>
                 <div class="projet-nav">
-                <a href="cadastro.html"  class="pagina-atual">Cadastro</a>
+                <a href="cadastro.php"  class="pagina-atual">Cadastro</a>
             </div>
             </nav>
         </div>
@@ -86,4 +86,4 @@
         });
     </script>
 </body>
-</html>
+        </html>

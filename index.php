@@ -1,9 +1,9 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "biblioteca";
-$port = 3346;  
+$port = 3306;  
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
@@ -72,7 +72,7 @@ function getRowClass($row) {
                 <a href="index.php" class="pagina-atual">Empréstimos</a>
             </div>
             <div class="projet-nav">
-                <a href="cadastro.html">Cadastro</a>
+                <a href="cadastro.php">Cadastro</a>
             </div>
         </nav>
     </div>
