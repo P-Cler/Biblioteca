@@ -2,7 +2,7 @@
 
 Este é um sistema de gerenciamento de empréstimos para auxiliar as bibliotecas da rede FIRJAN SENAI durante o período de falta de rede. Esta aplicação é simples e foca em trazer um sistema fácil e rápido para gerenciar de maneira prática os empréstimos nesse período. A aplicação roda sem a necessidade de estar conectada à internet, então é só baixar os arquivos e sistemas necessários.
 
-Importante ressaltar que essa aplicação não vai rodar nos computadores da rede, pois eles bloqueiam a execução de arquivos instaladores (nesse caso, o XAMPP). Você pode baixar todos os arquivos necessários (arquivos de código e instalador) e então colocá-los em um pen drive para executar em notebooks da sua unidade.
+Importante ressaltar que essa aplicação não vai rodar nos computadores da rede, pois eles bloqueiam a execução de arquivos instaladores (nesse caso, o XAMPP). Você pode baixar todos os arquivos necessários (arquivos de código e instalador) e então colocá-los em um pen drive para executar em notebooks.
 
 ## Requisitos
 
