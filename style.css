@@ -173,3 +173,15 @@ button:disabled {
     background-color: gray;
     cursor: not-allowed;
 }
+
+.amarelo { 
+    background-color: yellow; 
+}
+
+.vermelho { 
+    background-color: red; 
+}
+
+.finalizado { 
+    background-color: lightgrey; 
+}
