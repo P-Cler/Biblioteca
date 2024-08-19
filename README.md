@@ -10,6 +10,31 @@ Importante ressaltar que essa aplicação não vai rodar nos computadores da red
 - Arquivos da aplicação
 - Permissão para baixar
 
+## Atualização
+
+O sistema foi atualizado, trazendo novas funcionalidades. Não se preocupe, os empréstimos já realizados continuarão salvos e inalterados.
+
+### Novos Recursos
+
+- **Barra de Pesquisa**: Agora você pode buscar registros mais rapidamente usando a nova barra de pesquisa. Digite o nome do aluno para encontrar todos os empréstimos relacionados a esse nome.
+
+- **Ordenação de Colunas**: Adicionamos a funcionalidade de ordenação das colunas nas tabelas. Clique no cabeçalho das colunas para ordenar os registros em ordem ascendente ou descendente.
+
+### Tutorial de Atualização
+
+Para atualizar seu sistema para a versão mais recente, siga estas etapas:
+
+1. **Baixe a Nova Versão**
+   - [Download do arquivo ZIP](https://github.com/P-Cler/Biblioteca/archive/refs/tags/2.0.zip)
+
+2. **Substitua a Versão Antiga**
+   - Navegue até a pasta `htdocs` onde a versão antiga do sistema está instalada.
+   - Substitua todos os arquivos e pastas da versão antiga pelos arquivos da nova versão que você baixou. Certifique-se de substituir todos os arquivos existentes.
+
+3. **Aproveite**
+   - Com todas essas mudanças, o sistema deve estar funcionando corretamente e com as novas atualizações. Em caso de dúvidas ou se encontrar algum erro, entre em contato através de [pedro.cler@estudante.firjan.senai.br] ou abra uma issue no repositório.
+
+
 ## Instalação
 
 1. Baixe os arquivos no seu sistema:
