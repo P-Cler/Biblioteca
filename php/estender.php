@@ -1,10 +1,9 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "biblioteca";
-$port = 3306;  
-
+$port = 3306;
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
@@ -13,19 +12,19 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST["id"];
+    $id = intval($_POST["id"]); // Garantir que o ID seja um inteiro
 
-    
     $sql = "SELECT data_fim FROM emprestimos WHERE id=$id";
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
+
+    if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $data_fim = $row["data_fim"];
         
-        
+        // Calcular a nova data de término adicionando 7 dias
         $nova_data_fim = date('Y-m-d', strtotime($data_fim. ' + 7 days'));
 
-        
+        // Atualizar a data_fim na tabela de empréstimos
         $sql = "UPDATE emprestimos SET data_fim='$nova_data_fim' WHERE id=$id";
         if ($conn->query($sql) === TRUE) {
             $response = [
@@ -50,4 +49,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-?>
